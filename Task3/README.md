@@ -18,9 +18,3 @@
   <img src="https://github.com/EnikAs/Computational-Mathematics/blob/main/Task3/img/x_n_newton.png" width="800" alt="">
   <img src="https://github.com/EnikAs/Computational-Mathematics/blob/main/Task3/img/system_newton.png" width="800" alt="">
 </div>
-
-### Полученные решения:
-
-<div class="img-div3">
-  <img src="https://github.com/EnikAs/Computational-Mathematics/blob/main/Task3/img/answers.png" width="800" alt="">
-</div>

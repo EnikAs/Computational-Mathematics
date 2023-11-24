@@ -57,8 +57,8 @@ def y_from_eq(x):
 
 def mpi_system():
     eps: float = 1e-4
-    prev_x = 5.0
-    prev_y = 5.0
+    prev_x = 15.0
+    prev_y = 15.0
     xs = [prev_x]
     ys = [prev_y]
     new_x = x_from_eq(prev_y)
@@ -75,8 +75,8 @@ def mpi_system():
 
 def newton_system():
     eps: float = 1e-4
-    prev_x = 3.0
-    prev_y = 3.0
+    prev_x = 13.0
+    prev_y = 13.0
     xs = [prev_x]
     ys = [prev_y]
     dF = np.zeros((2, 2))
