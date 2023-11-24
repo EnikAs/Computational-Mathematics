@@ -32,7 +32,7 @@ def mpi_method():
         xs.append(prev_x)
         new_x = calculate_x_next(prev_x)
     plot_graph(xs, "MPI eq", "Step", "X", "img/x_n_mpi.png")
-    print(f"MPI final = {new_x}")
+    print(f"MPI eq = {new_x}")
 
 def newton_method():
     eps: float = 1e-4
