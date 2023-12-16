@@ -78,30 +78,34 @@ class LeastSqApprox(InterpolationMethod):
     def get_value(self, x):
         return self.coefs[0] * x**2 + self.coefs[1] * x + self.coefs[2]
 
-data = {
-    1910: 92228496,
-    1920: 106021537,
-    1930: 123202624,
-    1940: 132164569,
-    1950: 151325798,
-    1960: 179323175,
-    1970: 203211926,
-    1980: 226545805,
-    1990: 248709873,
-    2000: 281421906
-}
+def main():
+    data = {
+        1910: 92228496,
+        1920: 106021537,
+        1930: 123202624,
+        1940: 132164569,
+        1950: 151325798,
+        1960: 179323175,
+        1970: 203211926,
+        1980: 226545805,
+        1990: 248709873,
+        2000: 281421906
+    }
+    y_data = list(data.values())
+    x_data = list(data.keys())
+    methods = [NewtonApprox(x_data, y_data), SplineApprox(x_data, y_data), LeastSqApprox(x_data, y_data)]
+    x_data_plot = list(range(1910, 2020, 10))
+    for method in methods:
+        new_y_data = [method.get_value(x_value) for x_value in x_data_plot]
+        plt.title(method.get_name())
+        plt.ylabel("Численность")
+        plt.xlabel("Год")
+        plt.grid(True)  
+        plt.scatter(x_data, y_data, color='red', label='Original Data')  
+        plt.plot(x_data_plot, new_y_data, color='blue', label='Interpolated Data') 
+        plt.legend() 
+        plt.savefig("img/" + method.get_name())
+        plt.show()
 
-y_data = list(data.values())
-x_data = list(data.keys())
-methods = [NewtonApprox(x_data, y_data), SplineApprox(x_data, y_data), LeastSqApprox(x_data, y_data)]
-x_data_plot = list(range(1910, 2020, 10))
-for method in methods:
-    new_y_data = [method.get_value(x_value) for x_value in x_data_plot]
-    plt.title(method.get_name())
-    plt.ylabel("Y")
-    plt.xlabel("X")
-    plt.grid()
-    plt.plot(x_data_plot, new_y_data)
-    plt.savefig("img/" + method.get_name())
-    plt.show()
-
+if __name__ == '__main__':
+    main()
